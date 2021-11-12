@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,4 +25,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
     Route::get('/', function () {
         return view('admin');
     });
+    Route::group(['prefix' => 'user', 'middleware' => ['auth', 'role:member']], function () {
+        Route::get('/sample', [App\Http\Controllers\HomeController::class, 'index2'])->name('home');
+    });
 });
+Route::resource('author', AuthorController::class);
