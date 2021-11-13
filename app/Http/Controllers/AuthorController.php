@@ -53,9 +53,10 @@ class AuthorController extends Controller
      * @param  \App\Models\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function show(Author $author)
+    public function show($id)
     {
         $author = Author::findOrFail($id);
+        return view('author.show', compact('author'));
 
     }
 
@@ -65,7 +66,7 @@ class AuthorController extends Controller
      * @param  \App\Models\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function edit(Author $author)
+    public function edit($id)
     {
         $author = Author::findOrFail($id);
         return view('author.edit', compact('author'));
@@ -97,8 +98,10 @@ class AuthorController extends Controller
      * @param  \App\Models\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Author $author)
+    public function destroy($id)
     {
-        //
+        $author = Author::findOrFail($id);
+        $author->delete();
+        return redirect()->route('author.index');
     }
 }

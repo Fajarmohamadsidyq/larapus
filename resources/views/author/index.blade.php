@@ -37,11 +37,13 @@
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $data->name }}</td>
                                             <td>
-                                                <form action="" method="post">
+                                                <form action="{{ route('author.destroy', $data->id) }}" method="post">
                                                     @method('delete')
                                                     @csrf
-                                                    <a href="" class="btn btn-outline-info">Edit</a>
-                                                    <a href="" class="btn btn-outline-warning">Show</a>
+                                                    <a href="{{ route('author.edit', $data->id) }}"
+                                                        class="btn btn-outline-info">Edit</a>
+                                                    <a href="{{ route('author.show', $data->id) }}"
+                                                        class="btn btn-outline-warning">Show</a>
                                                     <button type="submit" class="btn btn-outline-danger"
                                                         onclick="return confirm('Apakah anda yakin menghapus ini??');">Delete</button>
                                                 </form>

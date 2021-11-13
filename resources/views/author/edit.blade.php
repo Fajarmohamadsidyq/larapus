@@ -1,8 +1,8 @@
 @extends('admin')
 @section('header')
     <div class="content-header">
-        <div class="content-fluid">
-            <div class="row mb-12">
+        <div class="container-fluid">
+            <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1 class="m-0">Edit Data Penulis</h1>
                 </div>
@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="card-header">Data Penulis</div>
                     <div class="card-body">
-                        <form action="{{ route('author.update'), $author->id }}" method="post">
+                        <form action="{{ route('author.update', $author->id) }}" method="post">
                             @csrf
                             @method('put')
                             <div class="form-group">
@@ -41,5 +41,4 @@
             </div>
         </div>
     </div>
-
 @endsection

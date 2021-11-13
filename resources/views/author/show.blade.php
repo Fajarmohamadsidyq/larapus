@@ -1,3 +1,5 @@
+show boo
+
 @extends('admin')
 @section('header')
     <div class="content-header">
